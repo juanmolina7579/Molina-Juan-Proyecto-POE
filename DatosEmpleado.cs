@@ -42,6 +42,7 @@ namespace Datos
             }
             return lista;
         }
+
         public string EliminarEmpleado(int idEmp, SqlConnection cn)
         {
             string msj = "";

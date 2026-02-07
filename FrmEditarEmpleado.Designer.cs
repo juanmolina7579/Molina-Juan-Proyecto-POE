@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtCedula = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.colNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +37,9 @@
             this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSueldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAntiguedad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtCedula = new System.Windows.Forms.TextBox();
+            this.lblCedula = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,39 +55,12 @@
             this.colFecha,
             this.colSueldo,
             this.colAntiguedad});
-            this.dgvEmpleados.Location = new System.Drawing.Point(12, 81);
+            this.dgvEmpleados.Location = new System.Drawing.Point(12, 77);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowHeadersWidth = 51;
             this.dgvEmpleados.RowTemplate.Height = 24;
-            this.dgvEmpleados.Size = new System.Drawing.Size(793, 203);
+            this.dgvEmpleados.Size = new System.Drawing.Size(710, 208);
             this.dgvEmpleados.TabIndex = 1;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(301, 31);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // txtCedula
-            // 
-            this.txtCedula.Location = new System.Drawing.Point(114, 31);
-            this.txtCedula.MaxLength = 10;
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(164, 22);
-            this.txtCedula.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 16);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Cédula:";
             // 
             // colNro
             // 
@@ -145,17 +118,45 @@
             this.colAntiguedad.Name = "colAntiguedad";
             this.colAntiguedad.Width = 125;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(301, 27);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(79, 27);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.Location = new System.Drawing.Point(114, 31);
+            this.txtCedula.MaxLength = 10;
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(164, 22);
+            this.txtCedula.TabIndex = 11;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoloNumeros_KeyPress);
+            // 
+            // lblCedula
+            // 
+            this.lblCedula.AutoSize = true;
+            this.lblCedula.Location = new System.Drawing.Point(55, 34);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(53, 16);
+            this.lblCedula.TabIndex = 10;
+            this.lblCedula.Text = "Cédula:";
+            // 
             // FrmEditarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 460);
+            this.ClientSize = new System.Drawing.Size(734, 344);
             this.Controls.Add(this.txtCedula);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCedula);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dgvEmpleados);
             this.Name = "FrmEditarEmpleado";
-            this.Text = "Form1";
+            this.Text = "Editar Empleados";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,7 +168,7 @@
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNro;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombres;

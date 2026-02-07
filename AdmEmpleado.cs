@@ -133,7 +133,6 @@ namespace Controlador
                 MessageBox.Show(msj);
             }
         }
-
         public void EliminarEmpleado(string cedulaB)
         {
             int posicionEmp = lista.FindIndex(x => x.cedula == cedulaB);
@@ -237,6 +236,8 @@ namespace Controlador
                 MessageBox.Show("Empleado con cédula " + cedula + " no encontrado.");
             }
         }
+
+
         public void Conectar()
         {
             Cn = new Conexion();

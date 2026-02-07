@@ -16,14 +16,18 @@ namespace Visual
         AdmEmpleado admEmp = new AdmEmpleado();
         public FrmEditarEmpleado()
         {
-            InitializeComponent();
-
         }
-
         public void btnBuscar_Click(object sender, EventArgs e)
         {
             string cedula = txtCedula.Text.Trim();
             admEmp.BuscarEmpleadoXCedula(cedula, dgvEmpleados);
+        }
+        private void txtSoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
