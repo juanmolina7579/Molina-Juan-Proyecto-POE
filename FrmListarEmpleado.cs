@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
+using Modelo;
 
 namespace Visual
 {
@@ -21,14 +22,12 @@ namespace Visual
             admEmp.LlenarTabla(dgvEmpleados);
             admEmp.LlenarComboCargo(cmbCargo);
         }
-
         private void btnFiltrarAnt_Click(object sender, EventArgs e)
         {
             int antD = (int)nudAntDesde.Value;
             int antH = (int)nudAntHasta.Value;
             admEmp.FiltrarXAntiguedad(antD, antH, dgvEmpleados);
         }
-
         private void btnFiltrarCargo_Click(object sender, EventArgs e)
         {
             string cargo = (string)cmbCargo.SelectedItem;
@@ -40,6 +39,14 @@ namespace Visual
             cmbCargo.SelectedIndex = -1;
             nudAntDesde.Value = 0;
             nudAntHasta.Value = 0;
+        }
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        List<Empleado> listaParaImprimir = admEmp.ObtenerListaEmpleados();
+
+        AdmPDF admPdf = new AdmPDF();
+        admPdf.CrearReporte(listaParaImprimir);
         }
     }
 }

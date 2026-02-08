@@ -46,6 +46,7 @@
             this.btnFiltrarCargo = new System.Windows.Forms.Button();
             this.cmbCargo = new System.Windows.Forms.ComboBox();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAntHasta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAntDesde)).BeginInit();
@@ -219,11 +220,22 @@
             this.btnMostrarTodos.UseVisualStyleBackColor = true;
             this.btnMostrarTodos.Click += new System.EventHandler(this.btnMostrarTodos_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(421, 450);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Imprimir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // FrmListarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 456);
+            this.ClientSize = new System.Drawing.Size(878, 497);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnMostrarTodos);
             this.Controls.Add(this.cmbCargo);
             this.Controls.Add(this.btnFiltrarCargo);
@@ -264,5 +276,6 @@
         private System.Windows.Forms.Button btnFiltrarCargo;
         private System.Windows.Forms.ComboBox cmbCargo;
         private System.Windows.Forms.Button btnMostrarTodos;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -55,7 +55,7 @@
             this.colFecha,
             this.colSueldo,
             this.colAntiguedad});
-            this.dgvEmpleados.Location = new System.Drawing.Point(12, 77);
+            this.dgvEmpleados.Location = new System.Drawing.Point(58, 94);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowHeadersWidth = 51;
             this.dgvEmpleados.RowTemplate.Height = 24;
@@ -150,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 344);
+            this.ClientSize = new System.Drawing.Size(880, 430);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.lblCedula);
             this.Controls.Add(this.btnBuscar);

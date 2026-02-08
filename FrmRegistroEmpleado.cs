@@ -15,13 +15,11 @@ namespace Visual
     public partial class FrmRegistroEmpleado : Form
     {
         AdmEmpleado admEmp = new AdmEmpleado();
-
         public FrmRegistroEmpleado()
         {
             InitializeComponent();
             admEmp.LlenarComboCargo(cmbCargo);
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string cedula = txtCedula.Text.Trim(), nombres = txtNombres.Text.Trim(),
@@ -38,7 +36,6 @@ namespace Visual
                 LimpiarCampos();
             }
         }
-
         private void LimpiarCampos()
         {
             txtCedula.Clear();
@@ -48,7 +45,6 @@ namespace Visual
             dtpFechaIngreso.Value = DateTime.Now;
             txtSueldo.Clear();
         }
-
         private void txtSoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -56,7 +52,6 @@ namespace Visual
                 e.Handled = true;
             }
         }
-
         private void txtSoloLetras_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
@@ -64,7 +59,6 @@ namespace Visual
                 e.Handled = true;
             }
         }
-
         private void txtSueldo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.')

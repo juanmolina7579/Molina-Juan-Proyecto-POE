@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
+
 namespace Visual
 {
     public partial class FrmMenu : Form

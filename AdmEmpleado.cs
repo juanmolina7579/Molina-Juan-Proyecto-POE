@@ -45,6 +45,14 @@ namespace Controlador
                 MessageBox.Show(msj);
             }
         }
+        public List<Empleado> ObtenerListaEmpleados()
+        {
+            if (lista.Count == 0)
+            {
+                ConsultarEmpleadosBDD();
+            }
+            return lista;
+        }
 
         public int GetCantidadLista()
         {
@@ -217,12 +225,12 @@ namespace Controlador
         {
             Empleado e = lista.Find(x => x.cedula == cedula);
             int i = 0;
-            if(e != null)
+            if (e != null)
             {
                 i = lista.IndexOf(e);
                 dgvEmpleados.Rows.Clear();
                 int indice = dgvEmpleados.Rows.Add();
-                dgvEmpleados.Rows[indice].Cells["colNro"].Value = indice+1;
+                dgvEmpleados.Rows[indice].Cells["colNro"].Value = indice + 1;
                 dgvEmpleados.Rows[indice].Cells["colCedula"].Value = e.cedula;
                 dgvEmpleados.Rows[indice].Cells["colNombres"].Value = e.nombres;
                 dgvEmpleados.Rows[indice].Cells["colCorreo"].Value = e.correo;

@@ -16,6 +16,7 @@ namespace Visual
         AdmEmpleado admEmp = new AdmEmpleado();
         public FrmEditarEmpleado()
         {
+            InitializeComponent();
         }
         public void btnBuscar_Click(object sender, EventArgs e)
         {
