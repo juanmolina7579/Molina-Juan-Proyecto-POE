@@ -57,7 +57,8 @@ namespace Visual
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(admEmp.GetCantidadLista() > 0)
+            admEmp.CargarEmpleados();
+            if (admEmp.GetCantidadLista() > 0)
             {
                 FrmEliminarEmpleado frmEliEmp = new FrmEliminarEmpleado();
                 frmEliEmp.ShowDialog();

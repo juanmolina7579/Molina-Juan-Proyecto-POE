@@ -29,6 +29,10 @@ namespace Visual
             string contenido = "";
             if (!admEmp.EsVacio(cedula, nombres, correo, cargo, txtSueldo.Text))
             {
+                if(!admEmp.EsCorreoValido(correo))
+                {
+                    return;
+                }
                 double sueldo = double.Parse(sueldoText);
                 contenido = admEmp.Registrar(cedula, nombres, correo, cargo, fecha, sueldo);
                 txtContenido.Text = contenido;

@@ -30,6 +30,8 @@ namespace Visual
                 cedulaB = dgvEmpleados.SelectedRows[0].Cells["colCedula"].Value?.ToString();
                 DialogResult result = MessageBox.Show("Desea eliminar al empleado " + cedulaB + "?", 
                     "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
                 if (result == DialogResult.Yes)
                 {
                     admEmp.EliminarEmpleado(cedulaB);

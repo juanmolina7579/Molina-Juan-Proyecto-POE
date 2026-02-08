@@ -18,20 +18,26 @@ namespace Visual
         public FrmListarEmpleado()
         {
             InitializeComponent();
-            admEmp.CargarEmpleados();
             admEmp.LlenarTabla(dgvEmpleados);
             admEmp.LlenarComboCargo(cmbCargo);
         }
-        private void btnFiltrarAnt_Click(object sender, EventArgs e)
+        private void btnFiltrarClick(object sender, EventArgs e)
         {
-            int antD = (int)nudAntDesde.Value;
-            int antH = (int)nudAntHasta.Value;
-            admEmp.FiltrarXAntiguedad(antD, antH, dgvEmpleados);
-        }
-        private void btnFiltrarCargo_Click(object sender, EventArgs e)
-        {
-            string cargo = (string)cmbCargo.SelectedItem;
-            admEmp.FiltrarXCargo(cargo, dgvEmpleados);
+            if (rbCargo.Checked)
+            {
+                string cargo= (string)cmbCargo.SelectedItem;
+                admEmp.FiltrarXCargo(cargo, dgvEmpleados);
+            }
+            else if (rbAntiguedad.Checked)
+            {
+                int antD = (int)nudAntDesde.Value;
+                int antH = (int)nudAntHasta.Value;
+                admEmp.FiltrarXAntiguedad(antD, antH, dgvEmpleados);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un criterio de filtrado");
+            }
         }
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
@@ -48,5 +54,29 @@ namespace Visual
         AdmPDF admPdf = new AdmPDF();
         admPdf.CrearReporte(listaParaImprimir);
         }
+
+        private void rbCargo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCargo.Checked)
+            {
+                cmbCargo.Visible = true;
+                nudAntDesde.Visible = false;
+                nudAntHasta.Visible = false;
+                lblDesde.Visible = false;
+                lblHasta.Visible = false;
+            }
+        }
+        private void rbAntiguedad_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAntiguedad.Checked)
+            {
+                cmbCargo.Visible = false;
+                nudAntDesde.Visible = true;
+                nudAntHasta.Visible = true;
+                lblDesde.Visible = true;
+                lblHasta.Visible = true;
+            }
+        }
+
     }
 }

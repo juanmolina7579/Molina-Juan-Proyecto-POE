@@ -141,6 +141,47 @@ namespace Controlador
                 MessageBox.Show(msj);
             }
         }
+        public void EditarEmpleado(string cedulaE, string nombres,
+            string correo, string cargo, DateTime fecha, double sueldo)
+        {
+            int posicionEmp = lista.FindIndex(x => x.cedula == cedulaE);
+            if (posicionEmp != -1)
+            {
+                Empleado empEditado = new Empleado(cedulaE, nombres, correo, cargo, fecha, sueldo);
+                empEditado.idEmp = lista[posicionEmp].idEmp;
+                lista[posicionEmp] = empEditado;
+                EditarEmpleadoBDD(empEditado);
+            }
+            else
+            {
+                MessageBox.Show("Empleado con cédula " + cedulaE + " no encontrado.");
+            }
+        }
+        public void EditarEmpleadoBDD(Empleado empleado)
+        {
+            Cn = new Conexion();
+            datosEmp = new DatosEmpleado();
+            string msj = Cn.Conectar();
+            string resp = "";
+            if (msj[0] == '1')
+            {
+                resp = datosEmp.EditarEmpleado(empleado, Cn.Cn);
+                if(resp[0] == '1')
+                {
+                    MessageBox.Show("Empleado con cédula " + empleado.cedula + " editado en la base de datos.");
+                }
+                else if(resp[0] == '0')
+                {
+                    MessageBox.Show(resp);
+                }
+                Cn.Cerrar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
         public void EliminarEmpleado(string cedulaB)
         {
             int posicionEmp = lista.FindIndex(x => x.cedula == cedulaB);

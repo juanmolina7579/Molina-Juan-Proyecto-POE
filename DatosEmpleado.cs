@@ -42,7 +42,31 @@ namespace Datos
             }
             return lista;
         }
-
+        public string EditarEmpleado(Empleado empleado, SqlConnection cn)
+        {
+            string msj = "";
+            string comando = "UPDATE Empleado SET cedula=@Cedula, nombres=@Nombres, correo=@Correo, " +
+                "cargo=@Cargo, fecha_Ingreso=@Fecha_Ingreso, sueldo=@Sueldo WHERE cedula=@Cedula";
+            cmd = new SqlCommand(comando, cn);
+            cmd.Parameters.AddWithValue("@IdEmp", empleado.idEmp);
+            cmd.Parameters.AddWithValue("@Cedula", empleado.cedula);
+            cmd.Parameters.AddWithValue("@Nombres", empleado.nombres);
+            cmd.Parameters.AddWithValue("@Correo", empleado.correo);
+            cmd.Parameters.AddWithValue("@Cargo", empleado.cargo);
+            cmd.Parameters.AddWithValue("@Fecha_Ingreso", empleado.fecha_Ingreso.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@Sueldo", empleado.sueldo);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                msj = "1";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                msj = "0" + ex.Message;
+            }
+            return msj;
+        }
         public string EliminarEmpleado(int idEmp, SqlConnection cn)
         {
             string msj = "";
@@ -62,7 +86,6 @@ namespace Datos
             }
             return msj;
         }
-
         public string RegistrarEmpleado(Empleado empleado, SqlConnection cn)
         {
             string msj = "";
